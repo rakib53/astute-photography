@@ -52,6 +52,7 @@ const ServiceDetails = () => {
     const serviceTitle = service[0]?.title;
     const rating = event.target.rating.value;
     const porductImage = service[0]?.imageURL;
+    const date = new Date().toLocaleString();
 
     fetch("http://localhost:5000/reviews", {
       method: "POST",
@@ -67,6 +68,7 @@ const ServiceDetails = () => {
         serviceTitle,
         rating,
         porductImage,
+        date,
       }),
     })
       .then((res) => {

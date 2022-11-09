@@ -1,8 +1,8 @@
 .navbarWrapper {
   display: flex;
   justify-content: center;
-  /* background-color: #192a56; */
-  background-color: #1e3799;
+  background-color: #0b162a;
+  z-index: 1111;
 }
 
 .menuWrapper {
@@ -21,6 +21,10 @@
   font-size: 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
+}
+
+.logoImg {
+  width: 200px;
 }
 
 .menu {

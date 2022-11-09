@@ -2,6 +2,7 @@ import React from "react";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import logo from "../images/logo.png";
 import "../styles/Footer.css";
 
 const Footer = () => {
@@ -10,7 +11,9 @@ const Footer = () => {
       <div className="container">
         <div className="footerContentWrapper">
           <div className="footerLogo">
-            <h1 className="footer_logo">Astute Photography</h1>
+            <h1 className="footer_logo">
+              <img className="logoImg" src={logo} alt="" />
+            </h1>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
             asperiores cum sint!
           </div>

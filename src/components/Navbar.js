@@ -6,7 +6,7 @@ import { GoSignIn } from "react-icons/go";
 import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
-// import logo from "../images/logo.jpeg";
+import logo from "../images/logo.png";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
@@ -34,8 +34,8 @@ const Navbar = () => {
       <div className="menuWrapper">
         <div className="brand">
           <Link to={"/"} className="logo">
-            {/* <img src={logo} alt="logo" /> */}
-            Astute Photography
+            <img className="logoImg" src={logo} alt="logo" />
+            {/* Astute Photography */}
           </Link>
         </div>
 
