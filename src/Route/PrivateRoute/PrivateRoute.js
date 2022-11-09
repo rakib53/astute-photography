@@ -1,13 +1,18 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { Context } from "../../Context/CreateContext";
+import spinner from "../../images/spinner.svg";
 
 const PrivateRoute = ({ children }) => {
   const { user, loader } = useContext(Context);
   const location = useLocation();
 
   if (loader) {
-    return <p>Loading...</p>;
+    return (
+      <div className="spinner">
+        <img src={spinner} alt="spinner" />
+      </div>
+    );
   }
 
   if (!user) {

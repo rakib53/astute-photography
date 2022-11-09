@@ -1,11 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Service.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const Service = ({ service }) => {
   return (
     <div className="service">
-      <img className="serviceImage" src={service.imageURL} alt="" />
+      <PhotoProvider>
+        <PhotoView src={service.imageURL}>
+          <img className="serviceImage" src={service.imageURL} alt="" />
+        </PhotoView>
+      </PhotoProvider>
+
       <p className="title">{service.title}</p>
       <p className="description">
         {service.description.length >= 100

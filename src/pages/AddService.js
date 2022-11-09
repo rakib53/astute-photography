@@ -45,24 +45,28 @@ const AddService = () => {
             type="text"
             name="title"
             placeholder="Add Service Title"
+            required
           />
           <input
             className="serviceFiled"
             type="text"
             name="courtesy"
             placeholder="Courtesy"
+            required
           />
           <input
             className="serviceFiled"
             type="text"
             name="price"
             placeholder="price"
+            required
           />
           <input
             className="serviceFiled"
             type="text"
             name="image"
             placeholder="Image URL"
+            required
           />
 
           <input
@@ -70,6 +74,7 @@ const AddService = () => {
             type="text"
             name="category"
             placeholder="Service Category"
+            required
           />
 
           <textarea
@@ -77,6 +82,7 @@ const AddService = () => {
             name="description"
             id=""
             placeholder="Add Service Description"
+            required
           ></textarea>
           <div className="addServiceBtnWrapper">
             <button className="submitReview">Add Service</button>

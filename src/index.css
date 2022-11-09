@@ -7,22 +7,26 @@
 }
 
 /* width */
-.reviewWrapper::-webkit-scrollbar {
+
+.disableEditFiled::-webkit-scrollbar {
   width: 3px;
 }
 
 /* Track */
-.reviewWrapper::-webkit-scrollbar-track {
+
+.disableEditFiled::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
 /* Handle */
-.reviewWrapper::-webkit-scrollbar-thumb {
+
+.disableEditFiled::-webkit-scrollbar-thumb {
   background: #888;
 }
 
 /* Handle on hover */
-.reviewWrapper::-webkit-scrollbar-thumb:hover {
+
+.disableEditFiled::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
@@ -39,4 +43,11 @@ code {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

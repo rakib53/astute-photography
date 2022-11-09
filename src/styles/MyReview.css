@@ -17,6 +17,7 @@
 }
 
 .myReviewPhotoWrapper {
+  width: 80%;
   display: flex;
   align-items: center;
 }
@@ -33,6 +34,10 @@
 .reviewWrappers {
   display: flex;
   align-items: center;
+}
+
+.reviewInfos {
+  width: 100%;
 }
 
 .editAndDelete {
@@ -65,6 +70,23 @@
 .noReviewText {
   text-align: center;
   margin-top: 100px;
+}
+
+.activeEditField {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #1e3799;
+  outline: none;
+  border-radius: 5px;
+}
+
+.disableEditFiled {
+  width: 100%;
+  height: auto;
+  border: none;
+  padding: 10px;
+  outline: none;
+  resize: none;
 }
 
 @media screen and (max-width: 500px) {

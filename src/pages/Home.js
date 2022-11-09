@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 import HomeServices from "../components/HomeServices";
 import "../styles/Home.css";
 
@@ -21,12 +22,16 @@ const Home = () => {
         </div>
       </div>
       <section className="serviceWrapperOnHomePage">
-        <h2 className="servicesTitle">My Services</h2>
-        <HomeServices></HomeServices>
-        <Link className="seeAllService" to={"/services"}>
-          See all services
-        </Link>
+        <div className="container">
+          <h2 className="servicesTitle">My Services</h2>
+          <HomeServices></HomeServices>
+          <Link className="seeAllService" to={"/services"}>
+            See all services
+          </Link>
+        </div>
       </section>
+
+      <Footer></Footer>
     </div>
   );
 };

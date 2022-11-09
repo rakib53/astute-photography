@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { CgClose } from "react-icons/cg";
 import { FaSignInAlt, FaUser } from "react-icons/fa";
 import { GoSignIn } from "react-icons/go";
 import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
+// import logo from "../images/logo.jpeg";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
-  // const [expandMenu, setExpandMenu] = useState(false);
-
   const { expandMenu, setExpandMenu, user, signOutUser } = useContext(Context);
 
   const expendMenu = () => {
@@ -19,18 +19,22 @@ const Navbar = () => {
   const handleSignOut = () => {
     signOutUser()
       .then((data) => {
-        console.log("user logOut Successfully");
+        notify("logged out Successfully");
       })
       .catch((err) => {
-        console.log(err);
+        notifyErr(err.message);
       });
   };
+
+  const notify = (text) => toast.success(text);
+  const notifyErr = (text) => toast.error(text);
 
   return (
     <div className="navbarWrapper">
       <div className="menuWrapper">
         <div className="brand">
           <Link to={"/"} className="logo">
+            {/* <img src={logo} alt="logo" /> */}
             Astute Photography
           </Link>
         </div>
@@ -90,6 +94,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

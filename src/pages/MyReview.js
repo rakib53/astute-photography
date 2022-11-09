@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Context } from "../Context/CreateContext";
 import "../styles/MyReview.css";
 
 const MyReview = () => {
   const [review, setReview] = useState([]);
+  const [onEdit, setOnEdit] = useState(false);
   const { user } = useContext(Context);
+  const inputEl = useRef(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/reviews")
@@ -34,7 +36,10 @@ const MyReview = () => {
       });
   };
 
-  console.log(review);
+  const handleEdit = (event) => {
+    inputEl.current.focus();
+    setOnEdit(!onEdit);
+  };
 
   return (
     <div className="myReviewWrapper">
@@ -55,10 +60,21 @@ const MyReview = () => {
                     <h3>{review.serviceTitle}</h3>
                     <p>{review.reviewerName}</p>
                     <p>{review.review}</p>
+                    {/* <textarea
+                      className={
+                        onEdit ? "activeEditField" : "disableEditFiled"
+                      }
+                      name="reviews"
+                      ref={inputEl}
+                      disabled={!onEdit ? true : false}
+                      defaultValue={review.review}
+                    ></textarea> */}
                   </div>
                 </div>
                 <div className="editAndDelete">
-                  <button className="editReview">edit</button>
+                  <button className="editReview" onClick={() => handleEdit()}>
+                    edit
+                  </button>
                   <button
                     onClick={() => handleReviewDelete(review._id)}
                     className="deleteReview"

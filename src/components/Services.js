@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import spinner from "../images/spinner.svg";
 import "../styles/Services.css";
 import Service from "./Service";
 
@@ -20,7 +21,7 @@ const Services = () => {
   return (
     <div className="container">
       {loading ? (
-        <h1>Loading...</h1>
+        <img className="spinner" src={spinner} alt="spinner" />
       ) : (
         <div className="servicesWrapper">
           {services.map((service) => {

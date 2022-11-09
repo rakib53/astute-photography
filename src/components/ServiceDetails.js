@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
 import "../styles/ServiceDetails.css";
@@ -80,7 +82,11 @@ const ServiceDetails = () => {
     <div className="serviceDetailsWrapper">
       <div className="serviceDetailsContentWraper">
         <div className="serviceDetailsContent">
-          <img className="imageDetails" src={service[0]?.imageURL} alt="" />
+          <PhotoProvider>
+            <PhotoView src={service[0]?.imageURL}>
+              <img className="imageDetails" src={service[0]?.imageURL} alt="" />
+            </PhotoView>
+          </PhotoProvider>
           <h2 className="serviceTitle">{service[0]?.title}</h2>
           <p className="descriptionDetails">{service[0]?.description}</p>
           <div className="serviceInfo">

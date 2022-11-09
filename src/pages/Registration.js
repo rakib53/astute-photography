@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
@@ -26,6 +27,7 @@ const Registration = () => {
         console.log(user);
         navigate("/signin");
         addedUserName(name);
+        notify("Successfully Registration!");
       })
       .catch((err) => {
         console.log(err);
@@ -36,17 +38,21 @@ const Registration = () => {
     LoginWithGoogle()
       .then((data) => {
         const user = data.user;
-        console.log(user);
+
         navigate("/");
+        notify("Successfully Registration!");
       })
       .catch((err) => {
-        console.log(err);
+        notifyErr(err.message);
       });
   };
 
   const handleEye = () => {
     setEye(!eye);
   };
+
+  const notify = (text) => toast.success(text);
+  const notifyErr = (text) => toast.error(text);
 
   return (
     <div className="registration">
@@ -86,6 +92,7 @@ const Registration = () => {
           </form>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
