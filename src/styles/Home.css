@@ -1,0 +1,73 @@
+.banner {
+  width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 111.09%,
+      rgba(0, 0, 0, 0.6) 111.09%
+    ),
+    url("../images/Andy_Rouse.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerContent {
+  width: 100%;
+  max-width: 850px;
+}
+
+.bannerContent h1 {
+  text-align: center;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.bannerContent p {
+  text-align: center;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.servicesTitle {
+  font-size: 36px;
+  text-align: center;
+  padding: 10px 0;
+  margin: 50px 0;
+  position: relative;
+}
+
+.servicesTitle::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 45%;
+  width: 10%;
+  height: 3px;
+  background-color: #1e3799;
+}
+
+.seeAllService {
+  width: 200px;
+  padding: 15px 30px;
+  background-color: #1e3799;
+  border: none;
+  color: #fff;
+  outline: none;
+  display: block;
+  border-radius: 5px;
+  text-align: center;
+  margin: 30px auto;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.seeAllService:hover {
+  background-color: #2948c6;
+  transition: all 0.3s ease;
+}

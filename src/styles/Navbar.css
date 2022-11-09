@@ -1,0 +1,130 @@
+.navbarWrapper {
+  display: flex;
+  justify-content: center;
+  /* background-color: #192a56; */
+  background-color: #1e3799;
+}
+
+.menuWrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand .logo {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.listItem {
+  margin: 0 10px;
+}
+
+.linkItem {
+  color: #fff;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.userProfile {
+  border-radius: 50px;
+  padding: 5px;
+  background-color: rgb(169, 86, 86);
+  margin-right: 10px;
+}
+
+.userProfilePic {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+
+.userProfile,
+.signOut,
+.signIn {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  padding: 5px;
+  color: #fff;
+}
+
+.expandMenuWrapper {
+  display: none;
+}
+
+.expandBar {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.closeBar {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .expandMenuWrapper {
+    display: block;
+  }
+  .menuWrapper {
+    display: flex;
+    background-color: #192a56;
+    height: 80px;
+    padding: 0 10px;
+  }
+  .menu {
+    position: absolute;
+    top: 80px;
+    left: -1000px;
+    width: 80%;
+    height: 100vh;
+    padding: 0 10px;
+    background-color: #192a56;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+  }
+
+  .activeMenu {
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .listItem {
+    margin: 15px 10px;
+  }
+
+  .profile {
+    position: absolute;
+    bottom: 10px;
+    left: -1000px;
+    padding: 0 10px;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .activeProfile {
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+}

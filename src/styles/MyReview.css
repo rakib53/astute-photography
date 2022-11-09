@@ -1,0 +1,93 @@
+/* My Review Pages css start here */
+
+.myReviewWrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.myReview {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.myReviewPhotoWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.myReviewPhoto {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: red;
+}
+
+.reviewWrappers {
+  display: flex;
+  align-items: center;
+}
+
+.editAndDelete {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.editReview,
+.deleteReview {
+  width: 80px;
+  text-align: center;
+  padding: 8px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  text-transform: uppercase;
+  /* background-color: #38ada9; */
+  background-color: #1e3799;
+  cursor: pointer;
+}
+
+.deleteReview {
+  background-color: #eb4d4b;
+}
+
+.noReviewText {
+  text-align: center;
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .myReview {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .myReviewPhotoWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .myReviewPhoto {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .editAndDelete {
+    margin-top: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

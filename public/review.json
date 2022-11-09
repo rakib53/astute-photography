@@ -1,0 +1,32 @@
+[
+  {
+    "review": " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, modi!",
+    "reviewerName": "Rakib Hossen",
+    "reviewerImg": "images",
+    "rating": 4
+  },
+  {
+    "review": "Sequi assumenda corporis rem quis nisi? ",
+    "reviewerName": "Antor Hossen",
+    "reviewerImg": "images",
+    "rating": 4
+  },
+  {
+    "review": "onsequuntur dolorum? Aliquam harum facilis eos dolore!!",
+    "reviewerName": "Shuvo Khan",
+    "reviewerImg": "images",
+    "rating": 4
+  },
+  {
+    "review": "Praesentium culpa voluptatem explicabo ad repudiandae unde accusantium!",
+    "reviewerName": "Siam Ahmed",
+    "reviewerImg": "images",
+    "rating": 5
+  },
+  {
+    "review": "libero nisi illum incidunt nam quibusdam aliquam soluta ipsam!",
+    "reviewerName": "Al Mamun",
+    "reviewerImg": "images",
+    "rating": 4
+  }
+]

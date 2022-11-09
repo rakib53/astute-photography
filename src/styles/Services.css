@@ -1,0 +1,24 @@
+.servicesWrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .servicesWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 501px) {
+  .servicesWrapper {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
