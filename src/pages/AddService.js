@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/AddService.css";
 
 const AddService = () => {
@@ -35,6 +35,10 @@ const AddService = () => {
         alert("Service added Successfully");
       });
   };
+
+  useEffect(() => {
+    document.title = "addservice || astute photography";
+  }, []);
   return (
     <div className="addServicesWrapper">
       <div className="addservice">

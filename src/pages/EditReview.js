@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
 
@@ -29,6 +29,10 @@ const EditReview = () => {
         }
       });
   };
+
+  useEffect(() => {
+    document.title = "edit review || astute photography";
+  }, []);
 
   const notify = (text) => toast(text);
   const notifyErr = (text) => toast.error(text);

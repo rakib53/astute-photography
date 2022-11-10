@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
 import "../styles/MyReview.css";
 
 const MyReview = () => {
   const [review, setReview] = useState([]);
-  const [onEdit, setOnEdit] = useState([]);
-  const inputEl = useRef();
   const { user } = useContext(Context);
 
   useEffect(() => {
@@ -24,6 +22,8 @@ const MyReview = () => {
         });
         setReview(myReviews);
       });
+
+    document.title = "myreview || astute photography";
   }, [user?.email]);
 
   const handleReviewDelete = (id) => {
@@ -39,16 +39,6 @@ const MyReview = () => {
         });
         setReview(remainingReview);
       });
-  };
-
-  const handleEdit = (id) => {
-    // inputEl.current.focus();
-    // setOnEdit(!onEdit);
-
-    const matchReview = review.filter((editReview) => {
-      return editReview._id === id;
-    });
-    setOnEdit(matchReview);
   };
 
   return (
@@ -70,15 +60,6 @@ const MyReview = () => {
                     <h3>{review.serviceTitle}</h3>
                     <p>{review.reviewerName}</p>
                     <p>{review.review}</p>
-                    {/* <textarea
-                      className={
-                        onEdit ? "activeEditField" : "disableEditFiled"
-                      }
-                      name="reviews"
-                      ref={inputEl}
-                      disabled={!onEdit ? true : false}
-                      defaultValue={review.review}
-                    ></textarea> */}
                   </div>
                 </div>
                 <div className="editAndDelete">
@@ -97,33 +78,6 @@ const MyReview = () => {
           })}
         </>
       )}
-
-      {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, unde! */}
-
-      {/* The button to open modal */}
-
-      {/* Put this part before </body> tag */}
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg mb-3">
-            Congratulations random Internet user!
-          </h3>
-          <textarea
-            className="border-2 w-full"
-            type="text"
-            ref={inputEl}
-            defaultValue={onEdit[0]?.review}
-          />
-          <div className="modal-action">
-            <label htmlFor="my-modal" className="btn">
-              update
-            </label>
-          </div>
-        </div>
-      </div>
-
-      {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, nesciunt. */}
     </div>
   );
 };

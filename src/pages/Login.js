@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
@@ -49,6 +49,10 @@ const Login = () => {
         notifyErr(err.message);
       });
   };
+
+  useEffect(() => {
+    document.title = "Login || astute photography";
+  }, []);
 
   const notify = (text) => toast(text);
   const notifyErr = (text) => toast.error(text);

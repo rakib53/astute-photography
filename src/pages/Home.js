@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import HomeServices from "../components/HomeServices";
@@ -8,6 +8,9 @@ import shape2 from "../images/shape-2.png";
 import "../styles/Home.css";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "home || astute photography";
+  }, []);
   return (
     <div>
       <div className="bannerWrapper">

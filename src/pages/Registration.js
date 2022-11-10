@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
 import SignUpImg from "../images/sign-up.png";
@@ -12,8 +11,7 @@ const Registration = () => {
   const [eye, setEye] = useState(false);
   const navigate = useNavigate();
 
-  const { user, addedUserName, LoginWithGoogle, createUser } =
-    useContext(Context);
+  const { addedUserName, LoginWithGoogle, createUser } = useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,10 +33,14 @@ const Registration = () => {
       });
   };
 
+  useEffect(() => {
+    document.title = "Registration || astute photography";
+  }, []);
+
   const handleGoogleLogin = () => {
     LoginWithGoogle()
       .then((data) => {
-        const user = data.user;
+        // const user = data.user;
 
         navigate("/");
         notify("Successfully Registration!");
@@ -65,9 +67,10 @@ const Registration = () => {
         <div className="registrationWrapper">
           <h1 className="create-acc">Create Account</h1>
           <div className="social-login">
-            <FaFacebookF className="icon" />
-            <AiOutlineGoogle className="icon" onClick={handleGoogleLogin} />
-            <FaLinkedinIn className="icon" />
+            <AiOutlineGoogle
+              className="icon border-2 border-gray-700 googleIcon"
+              onClick={handleGoogleLogin}
+            />
           </div>
 
           <p className="use-in">or use your mail for registration</p>

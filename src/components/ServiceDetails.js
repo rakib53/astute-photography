@@ -38,6 +38,8 @@ const ServiceDetails = () => {
         });
         setreviews(matchedReview);
       });
+
+    document.title = "Service details || astute photography";
   }, [serviceId]);
 
   const createReview = (event) => {

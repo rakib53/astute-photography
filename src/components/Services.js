@@ -16,6 +16,8 @@ const Services = () => {
         setServices(data);
         setLoading(false);
       });
+
+    document.title = "Services || astute photography";
   }, []);
 
   return (
