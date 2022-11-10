@@ -68,6 +68,7 @@ const Home = () => {
 
       <section>
         <div className="container">
+          <h2 className="servicesTitle">What I Do</h2>
           <div className="grid md:grid-cols-3 gap-5 my-20">
             <div className="flex flex-col justify-center items-center  p-4 rounded-lg">
               <img src={cam} alt="" className="camImg rounded-lg my-4" />
