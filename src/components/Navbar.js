@@ -62,6 +62,12 @@ const Navbar = () => {
               add service
             </Link>
           </li>
+
+          <li className="listItem">
+            <Link to={"/blog"} className="linkItem" onClick={expendMenu}>
+              Blog
+            </Link>
+          </li>
         </nav>
 
         <div

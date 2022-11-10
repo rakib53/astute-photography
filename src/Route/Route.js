@@ -4,6 +4,7 @@ import ServiceDetails from "../components/ServiceDetails";
 import Services from "../components/Services";
 import Main from "../layouts/Main";
 import AddService from "../pages/AddService";
+import Blog from "../pages/Blog";
 import EditReview from "../pages/EditReview";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
@@ -59,6 +60,10 @@ const Routes = createBrowserRouter([
             <EditReview></EditReview>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },
