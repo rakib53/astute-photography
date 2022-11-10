@@ -90,15 +90,14 @@ const EditReview = () => {
               </button>
             </div>
           </form>
+          <Link
+            className="flex justify-center bg-slate-400 my-5 py-3"
+            to={"/myreviews"}
+          >
+            See My Review
+          </Link>
         </>
       )}
-
-      <Link
-        className="flex justify-center bg-slate-400 my-5 py-3"
-        to={"/myreviews"}
-      >
-        See My Review
-      </Link>
     </div>
   );
 };

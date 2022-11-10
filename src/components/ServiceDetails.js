@@ -157,27 +157,40 @@ const ServiceDetails = () => {
           <p>Avarage Rating</p>
           <p>Total Review: {reviews.length}</p>
         </div>
-        {reviews.map((review) => {
-          return (
-            <div className="review" key={review._id}>
-              <img className="userImage" src={review.reviewerPhoto} alt="" />
-              <div className="reviewInDetails">
-                <div className="reviewTitleRating">
-                  <h3 className="reviewService">{review?.serviceTitle}</h3>
-                  <p className="rating">
-                    {review?.rating ? (
-                      <Star star={review.rating}></Star>
-                    ) : (
-                      "Not Yet"
-                    )}
-                  </p>
+
+        {reviews.length <= 0 ? (
+          <h2 className="text-xl text-center bg-red-300 rounded mt-5 py-4">
+            No Review Yet
+          </h2>
+        ) : (
+          <>
+            {reviews.map((review) => {
+              return (
+                <div className="review" key={review._id}>
+                  <img
+                    className="userImage"
+                    src={review.reviewerPhoto}
+                    alt=""
+                  />
+                  <div className="reviewInDetails">
+                    <div className="reviewTitleRating">
+                      <h3 className="reviewService">{review?.serviceTitle}</h3>
+                      <p className="rating">
+                        {review?.rating ? (
+                          <Star star={review.rating}></Star>
+                        ) : (
+                          "Not Yet"
+                        )}
+                      </p>
+                    </div>
+                    <p className="author">Author: {review.reviewerName}</p>
+                    <p className="reviewText">{review.review}</p>
+                  </div>
                 </div>
-                <p className="reviewText">{review.review}</p>
-                <p className="author">Author: {review.reviewerName}</p>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })}
+          </>
+        )}
       </div>
     </div>
   );

@@ -11,7 +11,8 @@ const Registration = () => {
   const [eye, setEye] = useState(false);
   const navigate = useNavigate();
 
-  const { addedUserName, LoginWithGoogle, createUser } = useContext(Context);
+  const { signOutUser, addedUserName, LoginWithGoogle, createUser } =
+    useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,6 +27,9 @@ const Registration = () => {
         console.log(user);
         navigate("/signin");
         addedUserName(name, photoURl);
+        signOutUser()
+          .then((res) => {})
+          .catch((err) => {});
         notify("Successfully Registration!");
       })
       .catch((err) => {

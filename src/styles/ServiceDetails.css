@@ -128,6 +128,7 @@
 
 .reviewText {
   margin: 5px 0;
+  word-break: break-all;
 }
 
 .reviewInDetails {
@@ -154,5 +155,10 @@
   .reviewWrapper {
     width: 100% !important;
     padding: 0 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .review {
+    flex-direction: column;
   }
 }
