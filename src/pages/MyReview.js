@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Star from "../components/Star";
 import { Context } from "../Context/CreateContext";
@@ -39,11 +40,16 @@ const MyReview = () => {
         const remainingReview = review.filter((rev) => {
           return rev._id !== id;
         });
+        notify("Deleted Review!");
         setReview(remainingReview);
+      })
+      .catch((err) => {
+        notifyErr(err.message);
       });
   };
 
-  console.log(review);
+  const notify = (text) => toast.success(text);
+  const notifyErr = (text) => toast.error(text);
 
   return (
     <div className="myReviewWrapper">
@@ -95,6 +101,7 @@ const MyReview = () => {
           )}
         </>
       )}
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

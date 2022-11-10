@@ -32,6 +32,9 @@ const EditReview = () => {
           notifyErr("Something went wrong!");
         }
       });
+
+    event.target.editreview.value = "";
+    event.target.editrating.value = "";
   };
 
   useEffect(() => {
@@ -54,7 +57,7 @@ const EditReview = () => {
     document.title = "edit review || astute photography";
   }, [id]);
 
-  const notify = (text) => toast(text);
+  const notify = (text) => toast.success(text);
   const notifyErr = (text) => toast.error(text);
 
   return (

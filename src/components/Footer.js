@@ -11,11 +11,11 @@ const Footer = () => {
       <div className="container">
         <div className="footerContentWrapper">
           <div className="footerLogo">
-            <h1 className="footer_logo">
+            <h1 className="footer_logo flex justify-center md:justify-start mb-5">
               <img className="logoImg" src={logo} alt="" />
             </h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            asperiores cum sint!
+            Discover my Beautiful Animals Images, and Create Your Great Stories
+            Here! Give Your Projects the Quality They Deserve.
           </div>
 
           <div className="navigation">

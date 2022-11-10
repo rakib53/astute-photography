@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
@@ -82,13 +83,20 @@ const ServiceDetails = () => {
       })
       .then((data) => {
         setreviews([data, ...reviews]);
+        notify("Successfully added Review!");
         event.target.reset();
+      })
+      .catch((err) => {
+        notifyErr(err.message);
       });
   };
 
   const handleSignInToReview = () => {
     navigate(from, { replace: true });
   };
+
+  const notify = (text) => toast.success(text);
+  const notifyErr = (text) => toast.error(text);
 
   return (
     <div className="serviceDetailsWrapper">
@@ -192,6 +200,8 @@ const ServiceDetails = () => {
           </>
         )}
       </div>
+
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };
