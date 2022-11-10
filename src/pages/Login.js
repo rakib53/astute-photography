@@ -28,6 +28,21 @@ const Login = () => {
     logInUser(email, password)
       .then((userCredential) => {
         notify("Login Successfull!");
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: userCredential.user.email,
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+          });
         navigate(from, { replace: true });
       })
       .catch((err) => {

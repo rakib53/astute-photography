@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { CgClose } from "react-icons/cg";
-import { FaSignInAlt, FaUser } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
 import { GoSignIn } from "react-icons/go";
 import { HiOutlineMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
@@ -28,6 +28,8 @@ const Navbar = () => {
 
   const notify = (text) => toast.success(text);
   const notifyErr = (text) => toast.error(text);
+  const defaultProfilePic =
+    "https://i.ibb.co/dgfs1tm/User-font-awesome-svg.png";
 
   return (
     <div className="navbarWrapper">
@@ -39,7 +41,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <nav className={`menu ${expandMenu ? "activeMenu" : "menu"}`}>
+        <nav className={`menus ${expandMenu ? "activeMenu" : "menus"}`}>
           <li className="listItem">
             <Link to={"/"} className="linkItem" onClick={expendMenu}>
               home
@@ -62,7 +64,9 @@ const Navbar = () => {
           </li>
         </nav>
 
-        <div className={`profile ${expandMenu ? "activeProfile" : "profile"}`}>
+        <div
+          className={`profile flex ${expandMenu ? "activeProfile" : "profile"}`}
+        >
           {user && user.uid ? (
             user?.photoURL ? (
               <img
@@ -71,7 +75,7 @@ const Navbar = () => {
                 alt="Profile"
               />
             ) : (
-              <FaUser className="userProfile" />
+              <img src={defaultProfilePic} alt="def" className="userProfile" />
             )
           ) : (
             ""

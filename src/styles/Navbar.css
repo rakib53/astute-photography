@@ -27,7 +27,7 @@
   width: 200px;
 }
 
-.menu {
+.menus {
   display: flex;
   list-style: none;
 }
@@ -45,7 +45,7 @@
 .userProfile {
   border-radius: 50px;
   padding: 5px;
-  background-color: rgb(169, 86, 86);
+  background-color: #fff;
   margin-right: 10px;
 }
 
@@ -95,7 +95,7 @@
     height: 80px;
     padding: 0 10px;
   }
-  .menu {
+  .menus {
     position: absolute;
     top: 80px;
     left: -1000px;

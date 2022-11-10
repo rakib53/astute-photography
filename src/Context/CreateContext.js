@@ -25,9 +25,10 @@ const CreateContext = ({ children }) => {
     return createUserWithEmailAndPassword(authentication, email, password);
   };
 
-  const addedUserName = (userName) => {
+  const addedUserName = (userName, userPhoto) => {
     return updateProfile(authentication.currentUser, {
       displayName: userName,
+      photoURL: userPhoto,
     });
   };
 

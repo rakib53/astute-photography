@@ -18,6 +18,7 @@ const Registration = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
+    const photoURl = event.target.photo.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
@@ -26,7 +27,7 @@ const Registration = () => {
         const user = res.user;
         console.log(user);
         navigate("/signin");
-        addedUserName(name);
+        addedUserName(name, photoURl);
         notify("Successfully Registration!");
       })
       .catch((err) => {
@@ -72,6 +73,7 @@ const Registration = () => {
           <p className="use-in">or use your mail for registration</p>
           <form className="registrationForm" onSubmit={handleSubmit}>
             <input type="text" placeholder="Enter Name" name="name" />
+            <input type="text" placeholder="Enter Photo URL" name="photo" />
             <input type="email" placeholder="Enter email" name="email" />
             <div className="inputFiled">
               <input

@@ -4,6 +4,7 @@ import ServiceDetails from "../components/ServiceDetails";
 import Services from "../components/Services";
 import Main from "../layouts/Main";
 import AddService from "../pages/AddService";
+import EditReview from "../pages/EditReview";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyReview from "../pages/MyReview";
@@ -50,6 +51,14 @@ const Routes = createBrowserRouter([
       {
         path: "/serviceDetails/:serviceId",
         element: <ServiceDetails></ServiceDetails>,
+      },
+      {
+        path: "/myreviews/:id",
+        element: (
+          <PrivateRoute>
+            <EditReview></EditReview>
+          </PrivateRoute>
+        ),
       },
     ],
   },

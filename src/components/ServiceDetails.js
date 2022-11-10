@@ -3,6 +3,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
+import spinner from "../images/spinner.svg";
 import "../styles/ServiceDetails.css";
 import Star from "./Star";
 
@@ -27,7 +28,7 @@ const ServiceDetails = () => {
   }, [serviceId]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("http://localhost:5000/reviewsPublic")
       .then((res) => {
         return res.json();
       })
@@ -46,7 +47,7 @@ const ServiceDetails = () => {
     const reviewerEmail = user?.email;
     const reviewerPhoto = user?.photoURL
       ? user.photoURL
-      : "https://i.ibb.co/r0dzFm6/user1.jpg";
+      : "https://i.ibb.co/dgfs1tm/User-font-awesome-svg.png";
     const review = event.target.review.value;
     const serviceId = service[0]._id;
     const serviceTitle = service[0]?.title;
@@ -86,7 +87,15 @@ const ServiceDetails = () => {
         <div className="serviceDetailsContent">
           <PhotoProvider>
             <PhotoView src={service[0]?.imageURL}>
-              <img className="imageDetails" src={service[0]?.imageURL} alt="" />
+              {!service[0]?.imageURL ? (
+                <img src={spinner} alt="spinner" className="spinner" />
+              ) : (
+                <img
+                  className="imageDetails"
+                  src={service[0]?.imageURL}
+                  alt=""
+                />
+              )}
             </PhotoView>
           </PhotoProvider>
           <h2 className="serviceTitle">{service[0]?.title}</h2>
@@ -123,8 +132,14 @@ const ServiceDetails = () => {
             </button>
           </form>
         ) : (
-          <h1>
-            Please login to add a review <Link to={"/signin"}>Login</Link>
+          <h1 className="text-3xl font-medium my-4">
+            Please login to add a review{" "}
+            <Link
+              className="text-orange-800 underline underline-offset-1"
+              to={"/signin"}
+            >
+              Login
+            </Link>
           </h1>
         )}
 
