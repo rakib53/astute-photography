@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 import "../styles/AddService.css";
 
 const AddService = () => {
@@ -12,7 +14,7 @@ const AddService = () => {
     const servicePrice = event.target.price.value;
     const serviceCategory = event.target.category.value;
 
-    fetch("http://localhost:5000/services", {
+    fetch("https://astute-photography-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,13 +34,22 @@ const AddService = () => {
         return res.json();
       })
       .then((data) => {
-        alert("Service added Successfully");
+        notify("Successfully added Service ");
+      })
+      .catch((err) => {
+        notifyErr(err.message);
       });
+
+    event.target.reset();
   };
 
   useEffect(() => {
     document.title = "addservice || astute photography";
   }, []);
+
+  const notify = (text) => toast.success(text);
+  const notifyErr = (text) => toast.error(text);
+
   return (
     <div className="addServicesWrapper">
       <div className="addservice">
@@ -92,7 +103,12 @@ const AddService = () => {
             <button className="submitReview">Add Service</button>
           </div>
         </form>
+
+        <div className="bg-red-300 mt-5 text-center py-3 rounded ">
+          <Link to={"/services"}>See All Services</Link>
+        </div>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

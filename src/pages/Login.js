@@ -52,7 +52,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     LoginWithGoogle()
       .then((data) => {
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://astute-photography-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -68,7 +68,7 @@ const Login = () => {
             localStorage.setItem("token", data.token);
           });
         navigate("/");
-        notify("Successfully Registration!");
+        notify("Login Successfull!");
       })
       .catch((err) => {
         notifyErr(err.message);
@@ -79,7 +79,7 @@ const Login = () => {
     document.title = "Login || astute photography";
   }, []);
 
-  const notify = (text) => toast(text);
+  const notify = (text) => toast.success(text);
   const notifyErr = (text) => toast.error(text);
 
   return (

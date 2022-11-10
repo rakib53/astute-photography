@@ -23,8 +23,6 @@ const Registration = () => {
 
     createUser(email, password)
       .then((res) => {
-        const user = res.user;
-        console.log(user);
         navigate("/signin");
         addedUserName(name, photoURl);
         signOutUser()
@@ -33,7 +31,7 @@ const Registration = () => {
         notify("Successfully Registration!");
       })
       .catch((err) => {
-        console.log(err);
+        notifyErr(err.message);
       });
   };
 
@@ -44,7 +42,7 @@ const Registration = () => {
   const handleGoogleLogin = () => {
     LoginWithGoogle()
       .then((data) => {
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://astute-photography-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -61,7 +59,7 @@ const Registration = () => {
           });
 
         navigate("/");
-        notify("Successfully Registration!");
+        notify("Login Successfully!");
       })
       .catch((err) => {
         notifyErr(err.message);
