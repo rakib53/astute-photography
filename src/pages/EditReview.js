@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
+import spinner from "../images/spinner.svg";
 
 const EditReview = () => {
   const [matchEdit, setMatchEdit] = useState([]);
@@ -59,31 +60,39 @@ const EditReview = () => {
   return (
     <div className="editReviewWrapper">
       <Toaster position="top-right" reverseOrder={false} />
-      <form className="reviewerFrom" onSubmit={handleEditSubmit}>
-        <input
-          className="nameField"
-          type="number"
-          max={5}
-          placeholder="Rating out of 5"
-          name="editrating"
-          defaultValue={matchEdit[0]?.rating}
-        />
-        <textarea
-          className="reviewFiled"
-          name="editreview"
-          placeholder="Write your wish..."
-          defaultValue={matchEdit[0]?.review}
-          required
-        ></textarea>
-        <div className="flex justify-center">
-          <button
-            className="submitReview text-white bg-slate-900"
-            type="submit"
-          >
-            Update Review
-          </button>
-        </div>
-      </form>
+
+      {matchEdit.length <= 0 ? (
+        <img src={spinner} alt="" className="spinner" />
+      ) : (
+        <>
+          <form className="reviewerFrom" onSubmit={handleEditSubmit}>
+            <input
+              className="nameField"
+              type="number"
+              max={5}
+              placeholder="Rating out of 5"
+              name="editrating"
+              defaultValue={matchEdit[0]?.rating}
+            />
+            <textarea
+              className="reviewFiled"
+              name="editreview"
+              placeholder="Write your wish..."
+              defaultValue={matchEdit[0]?.review}
+              required
+            ></textarea>
+            <div className="flex justify-center">
+              <button
+                className="submitReview text-white bg-slate-900"
+                type="submit"
+              >
+                Update Review
+              </button>
+            </div>
+          </form>
+        </>
+      )}
+
       <Link
         className="flex justify-center bg-slate-400 my-5 py-3"
         to={"/myreviews"}
