@@ -54,13 +54,13 @@ const Home = () => {
       <section>
         <h2 className="servicesTitle">Create Your Masterpiece</h2>
         <div className="container">
-          <div className="flex gap-5 mb-5">
-            <div>
-              <img src={photo1} alt="" />
+          <div className="grid md:grid-cols-2 gap-5 mb-5">
+            <div className="p-5">
+              <img className="rounded" src={photo1} alt="" />
             </div>
 
-            <div>
-              <img src={photo2} alt="" />
+            <div className="p-5">
+              <img className="rounded" src={photo2} alt="" />
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@ const Home = () => {
 
       <section>
         <div className="container">
-          <div className="grid grid-cols-3 gap-5 my-20">
+          <div className="grid md:grid-cols-3 gap-5 my-20">
             <div className="flex flex-col justify-center items-center  p-4 rounded-lg">
               <img src={cam} alt="" className="camImg rounded-lg my-4" />
               <h3 className="text-2xl font-medium my-4">Photo Sessions</h3>
@@ -110,12 +110,16 @@ const Home = () => {
       </section>
 
       <section className="myStr">
-        <div className="flex items-center mb-28">
-          <img src={myStory} alt="" />
-          <div className="pl-20">
-            <h2 className="text-5xl font-semibold mb-4 ">My Story</h2>
-            <p className="text-xl mb-3 font-medium">Creative Photography</p>
-            <p className="leading-7 pr-8">
+        <div className="grid md:grid-cols-2 items-center mb-28">
+          <img src={myStory} alt="" className="w-full" />
+          <div className="md:pl-20 my-10">
+            <h2 className="text-center md:text-left text-5xl font-semibold mb-4 ">
+              My Story
+            </h2>
+            <p className=" text-center md:text-left text-xl mb-3 font-medium">
+              Creative Photography
+            </p>
+            <p className="text-center md:text-left leading-7 pr-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
               eget lectus eu ex ornare porta euismod a libero. Phasellus
               vehicula placerat enim at egestas. Aliquam suscipit felis in massa
@@ -125,7 +129,9 @@ const Home = () => {
               sapien vitae malesuada ultricies. Curabitur pretium ipsum non nunc
               facilisis semper.
             </p>
-            <Link>view more</Link>
+            <Link className="flex justify-center mx-auto md:mx-0 md:text-left text-center my-5 text-white rounded bg-slate-900 py-3 w-3/12">
+              view more
+            </Link>
           </div>
         </div>
       </section>
