@@ -129,7 +129,10 @@ const Home = () => {
               sapien vitae malesuada ultricies. Curabitur pretium ipsum non nunc
               facilisis semper.
             </p>
-            <Link className="flex justify-center mx-auto md:mx-0 md:text-left text-center my-5 text-white rounded bg-slate-900 py-3 w-3/12">
+            <Link
+              to={"/services"}
+              className="flex justify-center mx-auto md:mx-0 md:text-left text-center my-5 text-white rounded bg-slate-900 py-3 w-3/12"
+            >
               view more
             </Link>
           </div>
