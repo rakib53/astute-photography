@@ -5,7 +5,7 @@ const HomeServices = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/servicesLimit")
+    fetch("https://astute-photography-server.vercel.app/servicesLimit")
       .then((res) => {
         return res.json();
       })

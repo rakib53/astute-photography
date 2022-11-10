@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { BsEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
 import "../styles/Login.css";
@@ -13,7 +12,7 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const { logInUser } = useContext(Context);
+  const { logInUser, LoginWithGoogle } = useContext(Context);
 
   const handleEye = () => {
     setEye(!eye);
@@ -28,7 +27,7 @@ const Login = () => {
     logInUser(email, password)
       .then((userCredential) => {
         notify("Login Successfull!");
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://astute-photography-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -50,6 +49,32 @@ const Login = () => {
       });
   };
 
+  const handleGoogleLogin = () => {
+    LoginWithGoogle()
+      .then((data) => {
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: data.user.email,
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+          });
+        navigate("/");
+        notify("Successfully Registration!");
+      })
+      .catch((err) => {
+        notifyErr(err.message);
+      });
+  };
+
   useEffect(() => {
     document.title = "Login || astute photography";
   }, []);
@@ -60,12 +85,13 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="loginFormWrapper">
-        <h1 className="login">Login Page</h1>
+        <h1 className="login text-2xl">Login Page</h1>
 
         <div className="social-login">
-          <FaFacebookF className="icon" />
-          <AiOutlineGoogle className="icon" />
-          <FaLinkedinIn className="icon" />
+          <AiOutlineGoogle
+            className="icon googleIcon"
+            onClick={handleGoogleLogin}
+          />
         </div>
 
         <p className="use-in">or use your mail for login</p>
@@ -81,11 +107,14 @@ const Login = () => {
               {eye ? <BsEyeSlashFill /> : <BsFillEyeFill />}
             </div>
           </div>
-          <button className="sign-in" type="submit">
+          <button className="sign-in bg-slate-900" type="submit">
             sign In
           </button>
           <p className="need-acc">
-            Need Account? <Link to={"/registration"}>Registration</Link>
+            Need Account?{" "}
+            <Link className="underline underline-offset-1" to={"/registration"}>
+              Registration
+            </Link>
           </p>
         </form>
         <Toaster position="top-right" reverseOrder={false} />

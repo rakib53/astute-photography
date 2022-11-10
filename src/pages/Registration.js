@@ -40,7 +40,21 @@ const Registration = () => {
   const handleGoogleLogin = () => {
     LoginWithGoogle()
       .then((data) => {
-        // const user = data.user;
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: data.user.email,
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+          });
 
         navigate("/");
         notify("Successfully Registration!");
@@ -88,11 +102,14 @@ const Registration = () => {
                 {eye ? <BsEyeSlashFill /> : <BsFillEyeFill />}
               </div>
             </div>
-            <button className="sign-up" type="submit">
+            <button className="sign-up bg-slate-900" type="submit">
               sign up
             </button>
             <p className="login-link">
-              Have an Account? <Link to={"/signin"}>Sign in</Link>
+              Have an Account?{" "}
+              <Link className="underline underline-offset-1" to={"/signin"}>
+                Sign in
+              </Link>
             </p>
           </form>
         </div>

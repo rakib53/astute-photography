@@ -8,7 +8,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://astute-photography-server.vercel.app/services")
       .then((res) => {
         return res.json();
       })

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { Context } from "../Context/CreateContext";
 import spinner from "../images/spinner.svg";
 import "../styles/ServiceDetails.css";
@@ -11,11 +11,14 @@ const ServiceDetails = () => {
   const [service, setService] = useState([]);
   const [reviews, setreviews] = useState([]);
   const { serviceId } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const { user } = useContext(Context);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services`)
+    fetch(`https://astute-photography-server.vercel.app/services`)
       .then((res) => {
         return res.json();
       })
@@ -28,7 +31,7 @@ const ServiceDetails = () => {
   }, [serviceId]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviewsPublic")
+    fetch("https://astute-photography-server.vercel.app/reviewsPublic")
       .then((res) => {
         return res.json();
       })
@@ -57,7 +60,7 @@ const ServiceDetails = () => {
     const porductImage = service[0]?.imageURL;
     const date = new Date().toLocaleString();
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://astute-photography-server.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,6 +84,10 @@ const ServiceDetails = () => {
         setreviews([data, ...reviews]);
         event.target.reset();
       });
+  };
+
+  const handleSignInToReview = () => {
+    navigate(from, { replace: true });
   };
 
   return (
@@ -129,7 +136,7 @@ const ServiceDetails = () => {
               placeholder="Write your wish..."
               required
             ></textarea>
-            <button className="submitReview" type="submit">
+            <button className="submitReview bg-black mb-5" type="submit">
               Add Review
             </button>
           </form>
@@ -139,6 +146,7 @@ const ServiceDetails = () => {
             <Link
               className="text-orange-800 underline underline-offset-1"
               to={"/signin"}
+              onClick={handleSignInToReview}
             >
               Login
             </Link>

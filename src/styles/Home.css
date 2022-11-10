@@ -93,6 +93,14 @@
   transition: all 0.3s ease;
 }
 
+.camImg {
+  width: 80px;
+}
+
+.myStr {
+  background-color: #efefef;
+}
+
 @media screen and (max-width: 991px) {
   .bannerImagearea {
     display: none;
